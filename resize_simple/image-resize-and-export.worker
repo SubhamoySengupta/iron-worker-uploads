@@ -1,0 +1,18 @@
+# define the runtime language
+runtime "python"
+# exec is the file that will be executed:
+exec "main.py"
+
+#include files
+file "credentials.txt"
+
+#include directories
+dir "hyve"
+
+#add python libraries from pip which will be build at runtime 
+#check {workername}:builder before queuing the task
+pip "boto"
+#adding PIL because the PIL library in iron.io has some missing namespaces
+pip "Pillow"
+full_remote_build true
+#run python enqueue.py from terminal for queuing the task
